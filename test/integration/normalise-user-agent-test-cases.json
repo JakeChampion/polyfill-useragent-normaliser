@@ -4523,6 +4523,11 @@
         "output": "chrome/47.0.0"
     },
     {
+        "input": "Mozilla/5.0 (iPhone; CPU iPhone OS 12_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/12.0 YaBrowser/18.10.3.114.10 Mobile/15E148 Safari/605.1",
+        "output": "ios_saf/12.0.0"
+    },
+
+    {
         "input": "Mozilla/5.0 (Linux; Android 6.0; Lenovo K50a40 Build/MRA58K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/57.0.2987.137 YaBrowser/17.4.1.352.00 Mobile Safari/537.36",
         "output": "chrome/57.0.0"
     },
