@@ -24,6 +24,10 @@
 
     "normalisations": [
         {
+            "reason": "Google Search iOS app should be detected as the underlying browser, which is safari on iOS",
+            "regex": "/(?i) GSA\\/[\\d\\.]+/"
+        },
+        {
             "reason": "Instagram should be detected as the underlying browser, which is safari on ios",
             "regex": "/(?i) Instagram [\\d\\.]+/"
         },
