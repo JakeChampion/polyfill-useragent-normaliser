@@ -22,7 +22,12 @@
         "samsung_mob": "4"
     },
 
-    "normalisations": [{
+    "normalisations": [
+        {
+            "reason": "Instagram should be detected as the underlying browser, which is safari on ios",
+            "regex": "/(?i) Instagram [\\d\\.]+/"
+        },
+        {
             "reason": "Yandex browser is recognised by UA module but is actually Chromium under the hood, so better to remove the Yandex identifier and get the UA module to detect it as Chrome",
             "regex": "/(YaBrowser)\\/(\\d+\\.)+\\d+ /"
         },
