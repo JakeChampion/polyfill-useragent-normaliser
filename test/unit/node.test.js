@@ -230,6 +230,16 @@ describe("lib/UA", function() {
       );
       proclaim.equal(facebookIOS.ua.family, "ios_saf");
 
+      const googleSearchApp = new UA(
+        "Mozilla/5.0 (iPhone; CPU iPhone OS 12_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) GSA/66.0.230776083 Mobile/15E148 Safari/605.1"
+      );
+      proclaim.equal(googleSearchApp.ua.family, "ios_saf");
+
+      const instagramIOS = new UA(
+        "Mozilla/5.0 (iPhone; CPU iPhone OS 12_1_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/16D57 Instagram 80.0.0.12.107"
+      );
+      proclaim.equal(instagramIOS.ua.family, "ios_saf");
+
       const samsungInternet = new UA(
         "Mozilla/5.0 (Linux; Android 5.0.1; SAMSUNG GT-I9506-ORANGE Build/LRX22C) AppleWebKit/537.36 (KHTML, like Gecko) SamsungBrowser/4.1 Chrome/34.0.1847.76 Mobile Safari/537.36"
       );
