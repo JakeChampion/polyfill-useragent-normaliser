@@ -1194,7 +1194,7 @@ sub normalise_user_agent_1_0_6 {
 		set req.http.User-Agent = regsub(req.http.User-Agent, {"(YaBrowser)\/(\d+\.)+\d+ "}, "");
 
 		# Crosswalk browser is recognised by UA module but is actually Chromium under the hood, so better to remove the identifier and get the UA module to detect it as Chrome
-		set req.http.User-Agent = regsub(req.http.User-Agent, {"(?i) Crosswalk\/[\d\.]+\d+"}, "");
+		set req.http.User-Agent = regsub(req.http.User-Agent, {"(?i) (Crosswalk)\/(\d+)\.(\d+)\.(\d+)\.(\d+)"}, "");
 
 		# Chrome and Opera on iOS uses a UIWebView of the underlying platform to render content. By stripping the CriOS or OPiOS strings, the useragent parser will alias the user agent to ios_saf for the UIWebView, which is closer to the actual renderer
 		set req.http.User-Agent = regsub(req.http.User-Agent, {"((CriOS|OPiOS)\/(\d+)\.(\d+)\.(\d+)\.(\d+)|(FxiOS\/(\d+)\.(\d+)))"}, "");
