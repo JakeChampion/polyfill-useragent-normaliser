@@ -1254,9 +1254,6 @@ sub normalise_user_agent_1_0_6 {
 		# Instagram should be detected as the underlying browser, which is safari on ios
 		set req.http.User-Agent = regsub(req.http.User-Agent, {"(?i) Instagram [\d\.]+"}, "");
 
-		# Snapchat should be detected as the underlying browser, which is safari on ios
-		set req.http.User-Agent = regsub(req.http.User-Agent, {"(?i) (Snapchat)\/(\d+)\.(\d+)\.(\d+)\.(\d+)"}, "");
-
 		# Yandex browser is recognised by UA module but is actually Chromium under the hood, so better to remove the Yandex identifier and get the UA module to detect it as Chrome
 		set req.http.User-Agent = regsub(req.http.User-Agent, {"(YaBrowser)\/(\d+\.)+\d+ "}, "");
 
