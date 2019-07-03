@@ -5098,5 +5098,9 @@
     {
         "input": "YahooMailProxy; https://help.yahoo.com/kb/yahoo-mail-proxy-SLN28749.html",
         "output": "other/0.0.0"
+    },
+    {
+        "input": "Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:60.9) Gecko/20100101 Goanna/4.1 Firefox/60.9 PaleMoon/28.4.0",
+        "output": "firefox/60.9.0"
     }
 ]
