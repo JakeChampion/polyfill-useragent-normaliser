@@ -35,6 +35,10 @@
             "regex": "/(?i) Goanna\\/[\\d\\.]+/"
         },
         {
+            "reason": "Pale Moon has a Firefox-compat UA string, we can remove the Pale Moon and Goanna identifiers and parse the result as Firefox",
+            "regex": "/(?i) PaleMoon\\/[\\d\\.]+/"
+        },
+        {
             "reason": "Yandex browser is recognised by UA module but is actually Chromium under the hood, so better to remove the Yandex identifier and get the UA module to detect it as Chrome",
             "regex": "/(YaBrowser)\\/(\\d+\\.)+\\d+ /"
         },
