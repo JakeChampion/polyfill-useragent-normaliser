@@ -1254,6 +1254,9 @@ sub normalise_user_agent_1_0_6 {
 		# Instagram should be detected as the underlying browser, which is safari on ios
 		set req.http.User-Agent = regsub(req.http.User-Agent, {"(?i) Instagram [\d\.]+"}, "");
 
+		# Pale Moon has a Firefox-compat UA string, we can remove the Pale Moon and Goanna identifiers and parse the result as Firefox
+		set req.http.User-Agent = regsub(req.http.User-Agent, {"(?i) Goanna\/[\d\.]+"}, "");
+
 		# Yandex browser is recognised by UA module but is actually Chromium under the hood, so better to remove the Yandex identifier and get the UA module to detect it as Chrome
 		set req.http.User-Agent = regsub(req.http.User-Agent, {"(YaBrowser)\/(\d+\.)+\d+ "}, "");
 
