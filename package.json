@@ -16,7 +16,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@financial-times/useragent_parser": "^1.2.0",
+    "@financial-times/useragent_parser": "^1.2.1",
     "semver": "^5.6.0"
   },
   "devDependencies": {
