@@ -8,7 +8,7 @@ sub useragent_parser {
   declare local var.Patch STRING;
   set var.Patch = "";
   if (!req.http.User-Agent) {
-  } else if (req.http.User-Agent ~ {"(iPod|iPod touch|iPhone|iPad);.*CPU.*OS[ +](\d+)_(\d+)(?:_(\d+)|).* [A-Za-z]+\/\d+\.\d+\.\d+?"}) {
+  } else if (req.http.User-Agent ~ {"(iPod|iPod touch|iPhone|iPad);.*CPU.*OS[ +](\d+)_(\d+)(?:_(\d+)|).* like Gecko\) (?!Version\/[\d.]+)[A-Za-z]+\/[\d.]+"}) {
 		set var.Family = "Mobile Safari UI/WKWebView";
 		set var.Major = re.group.2;
 		set var.Minor = re.group.3;
