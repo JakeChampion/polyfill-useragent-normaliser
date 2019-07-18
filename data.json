@@ -31,6 +31,10 @@
             "regex": "/(?i) Instagram [\\d\\.]+/"
         },
         {
+            "reason": "WebPageTest is not a real browser, remove the token to find the underlying browser",
+            "regex": "/(?i) (PTST)/(\\d+)(?:\\.(\\d+)|)$/"
+        },
+        {
             "reason": "Pale Moon has a Firefox-compat UA string, we can remove the Pale Moon and Goanna identifiers and parse the result as Firefox",
             "regex": "/(?i) Goanna\\/[\\d\\.]+/"
         },
