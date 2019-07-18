@@ -1234,7 +1234,7 @@ sub useragent_parser {
   set req.http.useragent_parser_patch=var.Patch;
 }
 
-sub normalise_user_agent_1_0_6 {
+sub normalise_user_agent_1_1_0 {
   if (!req.http.User-Agent) {
     set req.http.normalized_user_agent_family = "other";
     set req.http.normalized_user_agent_major_version = "0";
@@ -1253,6 +1253,9 @@ sub normalise_user_agent_1_0_6 {
 
 		# Instagram should be detected as the underlying browser, which is safari on ios
 		set req.http.User-Agent = regsub(req.http.User-Agent, {"(?i) Instagram [\d\.]+"}, "");
+
+		# WebPageTest is not a real browser, remove the token to find the underlying browser
+		set req.http.User-Agent = regsub(req.http.User-Agent, {"(?i) PTST\/[\d\.]+"}, "");
 
 		# Pale Moon has a Firefox-compat UA string, we can remove the Pale Moon and Goanna identifiers and parse the result as Firefox
 		set req.http.User-Agent = regsub(req.http.User-Agent, {"(?i) Goanna\/[\d\.]+"}, "");
