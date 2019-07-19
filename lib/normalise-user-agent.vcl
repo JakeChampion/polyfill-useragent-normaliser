@@ -1257,6 +1257,9 @@ sub normalise_user_agent_1_2_0 {
 		# WebPageTest is not a real browser, remove the token to find the underlying browser
 		set req.http.User-Agent = regsub(req.http.User-Agent, {"(?i) PTST\/[\d\.]+"}, "");
 
+		# Waterfox is a Firefox fork, we can remove the Waterfox identifiers and parse the result as Firefox
+		set req.http.User-Agent = regsub(req.http.User-Agent, {"(?i) Waterfox\/[\d\.]+"}, "");
+
 		# Pale Moon has a Firefox-compat UA string, we can remove the Pale Moon and Goanna identifiers and parse the result as Firefox
 		set req.http.User-Agent = regsub(req.http.User-Agent, {"(?i) Goanna\/[\d\.]+"}, "");
 

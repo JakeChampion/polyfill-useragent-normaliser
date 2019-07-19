@@ -7,6 +7,10 @@
         "output": "other/0.0.0"
     },
     {
+        "input": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.14; rv:56.0) Gecko/20100101 Firefox/56.0 Waterfox/56.2.12",
+        "output": "firefox/56.0.0"
+    },
+    {
         "input": " Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36 PTST/190709.170756",
         "output": "chrome/75.0.0"
     },
@@ -4997,7 +5001,7 @@
     },
     {
         "input": "Mozilla/5.0 (X11; Linux x86_64; rv:55.0) Gecko/20100101 Firefox/55.2.2 Waterfox/55.2.2",
-        "output": "other/0.0.0"
+        "output": "firefox/55.2.0"
     },
     {
         "input": "Mozilla/5.0 (X11; Linux x86_64; rv:55.0) Gecko/20100101 Goanna/4.0 Firefox/55.0 Basilisk/20171113",

@@ -122,6 +122,11 @@ describe("lib/UA", function() {
     });
 
     it("uses alias for browser family name if alias exists", () => {
+      const waterfox = new UA(
+        "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.14; rv:56.0) Gecko/20100101 Firefox/56.0 Waterfox/56.2.12"
+      );
+      proclaim.equal(waterfox.ua.family, "firefox");
+
       const opera = new UA(
         "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.10 Safari/537.36 OPR/27.0.1689.22 (Edition developer)"
       );

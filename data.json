@@ -35,6 +35,10 @@
             "regex": "/(?i) PTST\\/[\\d\\.]+/"
         },
         {
+            "reason": "Waterfox is a Firefox fork, we can remove the Waterfox identifiers and parse the result as Firefox",
+            "regex": "/(?i) Waterfox\\/[\\d\\.]+/"
+        },
+        {
             "reason": "Pale Moon has a Firefox-compat UA string, we can remove the Pale Moon and Goanna identifiers and parse the result as Firefox",
             "regex": "/(?i) Goanna\\/[\\d\\.]+/"
         },
