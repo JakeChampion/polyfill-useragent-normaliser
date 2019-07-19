@@ -9,6 +9,7 @@ jobs:
       - checkout
       - run: npm ci
       - run: npm run lint
+      - run: npx @commitlint/cli --from=origin/master --to=HEAD --verbose
   unit_tests:
     docker:
       - image: circleci/node:10
@@ -41,45 +42,20 @@ jobs:
     steps:
       - checkout
       - run: npm ci
-      - run: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/.npmrc
-      - run: npm publish
+      - run: npm run semantic-release
+
 workflows:
   test:
     jobs:
-      - lint:
-          filters:
-            tags:
-              only: /^v.*/
-            branches:
-              only: /.*/
-      - unit_tests:
-          filters:
-            tags:
-              only: /^v.*/
-            branches:
-              only: /.*/
-      - deploy_to_fastly:
-          filters:
-            tags:
-              only: /^v.*/
-            branches:
-              only: /.*/
-          requires:
-            - lint
-            - unit_tests
+      - lint
+      - unit_tests
+      - deploy_to_fastly
       - integration_tests:
-          filters:
-            tags:
-              only: /^v.*/
-            branches:
-              only: /.*/
           requires:
             - deploy_to_fastly
       - publish_to_npm:
           filters:
-            tags:
-              only: /^v.*/
             branches:
-              ignore: /.*/
+              only: master
           requires:
             - integration_tests
