@@ -1,7 +1,7 @@
 {
   "name": "@financial-times/polyfill-useragent-normaliser",
   "version": "1.4.1",
-  "description": "",
+  "description": "The user-agent normalisation logic behind polyfill-library and polyfill.io",
   "main": "lib/normalise-user-agent.js",
   "engines": {
     "node": ">=8"
