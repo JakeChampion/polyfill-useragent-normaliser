@@ -13,7 +13,8 @@
     "build": "node compilers/fastly.js && node compilers/node.js",
     "test:integration": "mocha --bail --recursive test/integration/*.test.js",
     "test:unit": "mocha --bail --recursive test/unit/*.test.js",
-    "semantic-release": "semantic-release"
+    "semantic-release": "semantic-release",
+    "version": "npm run build && npm run fix"
   },
   "author": "",
   "license": "MIT",
@@ -65,7 +66,8 @@
         "assets": [
           "package.json",
           "package-lock.json",
-          "CHANGELOG.md"
+          "CHANGELOG.md",
+          "lib/normalise-user-agent.vcl"
         ],
         "message": "chore(release): ${nextRelease.version} [skip ci]nn${nextRelease.notes}"
       }
