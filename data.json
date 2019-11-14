@@ -69,6 +69,10 @@
         {
             "reason": "Electron/X.Y.Z` (see https://github.com/Financial-Times/polyfill-service/issues/1129)",
             "regex": "/(?i) Electron\\/[\\d\\.]+\\d+/"
+        },
+        {
+            "reason": "Chromium-based Edge",
+            "regex": "/(?i) Edg\\/[\\d\\.]+\\d+/"
         }
     ],
 

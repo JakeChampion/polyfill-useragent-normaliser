@@ -5110,5 +5110,9 @@
     {
         "input": "Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:60.9) Gecko/20100101 Goanna/4.1 Firefox/60.9 PaleMoon/28.4.0",
         "output": "firefox/60.9.0"
+    },
+    {
+        "input": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3956.0 Safari/537.36 Edg/80.0.328.0",
+        "output": "chrome/80.0.0"
     }
 ]

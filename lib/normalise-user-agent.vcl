@@ -1284,6 +1284,9 @@ sub normalise_user_agent_1_4_2 {
 		# Electron/X.Y.Z` (see https://github.com/Financial-Times/polyfill-service/issues/1129)
 		set req.http.User-Agent = regsub(req.http.User-Agent, {"(?i) Electron\/[\d\.]+\d+"}, "");
 
+		# Chromium-based Edge
+		set req.http.User-Agent = regsub(req.http.User-Agent, {"(?i) Edg\/[\d\.]+\d+"}, "");
+
         call useragent_parser;
 
         # Clone the original values for later modification. This helps when debugging as it let's us see what the useragent_parser function returned.
