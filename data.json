@@ -159,7 +159,27 @@
             "44": ["chrome", 57],
             "45": ["chrome", 58],
             "46": ["chrome", 59],
-            "47": ["chrome", 60]
+            "47": ["chrome", 60],
+            "48": ["chrome", 61],
+            "49": ["chrome", 62],
+            "50": ["chrome", 63],
+            "51": ["chrome", 64],
+            "52": ["chrome", 65],
+            "53": ["chrome", 66],
+            "54": ["chrome", 67],
+            "55": ["chrome", 68],
+            "56": ["chrome", 69],
+            "57": ["chrome", 70],
+            "58": ["chrome", 71],
+            "59": ["chrome", 72],
+            "60": ["chrome", 73],
+            "61": ["chrome", 74],
+            "62": ["chrome", 75],
+            "63": ["chrome", 76],
+            "64": ["chrome", 77],
+            "65": ["chrome", 78],
+            "66": ["chrome", 79],
+            "67": ["chrome", 80]
         },
 
         "googlebot": {
