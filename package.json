@@ -10,11 +10,13 @@
     "commit": "git-cz",
     "lint": "eslint .",
     "fix": "eslint . --fix",
-    "build": "node compilers/fastly.js && node compilers/node.js",
+    "build": "node compilers/fastly.js && node compilers/node.js && npm run fix",
+    "test": "npm run test:unit && npm run test:integration",
     "test:integration": "mocha --bail --recursive test/integration/*.test.js",
     "test:unit": "mocha --bail --recursive test/unit/*.test.js",
     "semantic-release": "semantic-release",
-    "version": "npm run build && npm run fix"
+    "version": "npm run build",
+    "prepare": "npm run build"
   },
   "author": "",
   "license": "MIT",

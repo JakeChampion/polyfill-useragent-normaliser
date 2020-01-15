@@ -7,6 +7,11 @@ jobs:
       - image: circleci/node:10
     steps:
       - checkout
+      - run:
+          name: "Pull Submodules"
+          command: |
+            git submodule init
+            git submodule update --remote
       - run: npm ci
       - run: npm run lint
       - run: npx @commitlint/cli --from=origin/master --to=HEAD --verbose
@@ -15,32 +20,50 @@ jobs:
       - image: circleci/node:10
     steps:
       - checkout
+      - run:
+          name: "Pull Submodules"
+          command: |
+            git submodule init
+            git submodule update --remote
       - run: npm ci
-      - run: npm run build
       - run: npm run test:unit
   deploy_to_fastly:
     docker:
-      - image: "circleci/node:10"
+      - image: circleci/node:10
     steps:
-      - "checkout"
-      - run: "npm ci"
-      - run: "sudo ~/project/.circleci/install_terraform.sh"
+      - checkout
+      - run:
+          name: "Pull Submodules"
+          command: |
+            git submodule init
+            git submodule update --remote
+      - run: npm ci
+      - run: sudo ~/project/.circleci/install_terraform.sh
       - run: terraform init fastly/terraform/
-      - run: terraform import -config="fastly/terraform" fastly_service_v1.app $FASTLY_SERVICE_ID
+      - run: terraform import -config=fastly/terraform fastly_service_v1.app $FASTLY_SERVICE_ID
       - run: terraform apply --auto-approve fastly/terraform/
   integration_tests:
     docker:
       - image: circleci/node:10
     steps:
       - checkout
+      - run:
+          name: "Pull Submodules"
+          command: |
+            git submodule init
+            git submodule update --remote
       - run: npm ci
-      - run: npm run build
       - run: npm run test:integration
   publish_to_npm:
     docker:
       - image: circleci/node:10
     steps:
       - checkout
+      - run:
+          name: "Pull Submodules"
+          command: |
+            git submodule init
+            git submodule update --remote
       - run: npm ci
       - run: npm run semantic-release
 
