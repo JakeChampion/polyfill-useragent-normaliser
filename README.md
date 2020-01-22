@@ -1,3 +1,6 @@
+# Motication of Fork
+https://github.com/abema/abema-web/issues/15269
+
 # polyfill.io User Agent normaliser
 
 This is the VCL & JS implementation of the User-Agent normalisation used within the [polyfill-service](https://github.com/Financial-Times/polyfill-service) and the [polyfill-library](https://github.com/Financial-Times/polyfill-library).
