@@ -126,6 +126,7 @@
         "iphone simulator": "ios_saf",
         "mobile safari uiwebview": "ios_saf",
         "mobile safari ui/wkwebview": "ios_saf",
+        "mobile safari/wkwebview": "ios_saf",
 
         "samsung internet": "samsung_mob",
 

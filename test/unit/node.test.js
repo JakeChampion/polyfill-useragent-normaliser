@@ -39,20 +39,20 @@ describe("lib/UA", function() {
     describe("removes iOS webview browsers from uastring", () => {
       it("firefox for iOS", () => {
         const firefoxIOS =
-          "Mozilla/5.0 (iPhone; CPU iPhone OS 9_1 like Mac OS X) AppleWebKit/600.1.4 (KHTML, like Gecko) FxiOS/1.0 Mobile/12F69 Safari/600.1.4";
-        proclaim.equal(UA.normalize(firefoxIOS), "ios_saf/9.1.0");
+          "Mozilla/5.0 (iPhone; CPU iPhone OS 12_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) FxiOS/23.0 Mobile/16B92 Safari/605.1.15";
+        proclaim.equal(UA.normalize(firefoxIOS), "ios_saf/11.0.0");
       });
 
       it("chrome for iOS", () => {
         const chromeIOS =
-          "Mozilla/5.0 (iPhone; U; CPU iPhone OS 9_1_2 like Mac OS X; en-gb) AppleWebKit/534.46.0 (KHTML, like Gecko) CriOS/19.0.1084.60 Mobile/9B206 Safari/7534.48.3";
-        proclaim.equal(UA.normalize(chromeIOS), "ios_saf/9.1.0");
+          "Mozilla/5.0 (iPhone; CPU iPhone OS 12_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) CriOS/80.0.3987.95 Mobile/15E148 Safari/605.1";
+        proclaim.equal(UA.normalize(chromeIOS), "ios_saf/11.0.0");
       });
 
       it("opera for iOS", () => {
         const operaIOS =
-          "Mozilla/5.0 (iPhone; CPU iPhone OS 9_1_2 like Mac OS X) AppleWebKit/537.51.2 (KHTML, like Gecko) OPiOS/8.0.2.80660 Mobile/11D257 Safari/9537.53";
-        proclaim.equal(UA.normalize(operaIOS), "ios_saf/9.1.0");
+          "Mozilla/5.0 (iPad; CPU OS 11_2_6 like Mac OS X) AppleWebKit/604.5.6 (KHTML, like Gecko) OPiOS/16.0.8.121059 Mobile/15D100 Safari/9537.53";
+        proclaim.equal(UA.normalize(operaIOS), "ios_saf/11.0.0");
       });
     });
 
@@ -74,7 +74,7 @@ describe("lib/UA", function() {
       it("Facebook for iOS", () => {
         const facebook =
           "Mozilla/5.0 (iPhone; CPU iPhone OS 9_2 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Mobile/13C75 [FBAN/FBIOS;FBAV/46.0.0.54.156;FBBV/18972819;FBDV/iPhone8,1;FBMD/iPhone;FBSN/iPhone OS;FBSV/9.2;FBSS/2; FBCR/Telenor;FBID/phone;FBLC/nb_NO;FBOP/5]";
-        proclaim.equal(UA.normalize(facebook), "ios_saf/9.2.0");
+        proclaim.equal(UA.normalize(facebook), "ios_saf/9.0.0");
       });
 
       it("Facebook for Android, using Chrome browser", () => {
@@ -216,12 +216,12 @@ describe("lib/UA", function() {
       proclaim.equal(ucBrowser.ua.family, "other");
 
       const chromeMobileIos = new UA(
-        "Mozilla/5.0 (iPhone; CPU iPhone OS 9_0_2 like Mac OS X) AppleWebKit/537.51.1 (KHTML, like Gecko) CriOS/30.0.1599.12 Mobile/11A501 Safari/8536.25"
+        "Mozilla/5.0 (iPhone; CPU iPhone OS 12_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) CriOS/80.0.3987.95 Mobile/15E148 Safari/605.1"
       );
       proclaim.equal(chromeMobileIos.ua.family, "ios_saf");
 
       const mobileSafari = new UA(
-        "Mozilla/5.0 (iPad; U; CPU OS 3_2 like Mac OS X; en-us) AppleWebKit/531.21.10 (KHTML, like Gecko) Version/9.0.4 Mobile/7B367 Safari/531.21.10"
+        "Mozilla/5.0 (iPhone; CPU iPhone OS 12_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0 Mobile/15E148 Safari/604.1"
       );
       proclaim.equal(mobileSafari.ua.family, "ios_saf");
 
@@ -231,7 +231,7 @@ describe("lib/UA", function() {
       proclaim.equal(mobileSafariUIWebView.ua.family, "ios_saf");
 
       const facebookIOS = new UA(
-        "Mozilla/5.0 (iPhone; CPU iPhone OS 9_1_1 like Mac OS X) AppleWebKit/534.46 (KHTML, like Gecko) Mobile/9B206 [FBAN/FBIOS;FBAV/6.1;FBBV/201075;FBDV/iPhone3,1;FBMD/iPhone;FBSN/iPhone OS;FBSV/5.1.1;FBSS/2; FBCR/Vodafone.de;FBID/phone;FBLC/en_US;FBOP/1]"
+        "Mozilla/5.0 (iPhone; CPU iPhone OS 9_2 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Mobile/13C75 [FBAN/FBIOS;FBAV/46.0.0.54.156;FBBV/18972819;FBDV/iPhone8,1;FBMD/iPhone;FBSN/iPhone OS;FBSV/9.2;FBSS/2; FBCR/Telenor;FBID/phone;FBLC/nb_NO;FBOP/5]"
       );
       proclaim.equal(facebookIOS.ua.family, "ios_saf");
 
@@ -292,20 +292,10 @@ describe("lib/UA", function() {
       );
       proclaim.equal(ie.getFamily(), "edge_mob");
 
-      const ios1 = new UA(
-        "Mozilla/5.0 (iPad; CPU OS 9_0_1 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Mobile/10A523 [FBAN/FBIOS;FBAV/6.0.1;FBBV/180945;FBDV/iPad2,1;FBMD/iPad;FBSN/iPhone OS;FBSV/6.0.1;FBSS/1; FBCR/;FBID/tablet;FBLC/en_US;FBOP/1]"
+      const ios = new UA(
+        "Mozilla/5.0 (iPhone; CPU iPhone OS 9_2 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Mobile/13C75 [FBAN/FBIOS;FBAV/46.0.0.54.156;FBBV/18972819;FBDV/iPhone8,1;FBMD/iPhone;FBSN/iPhone OS;FBSV/9.2;FBSS/2; FBCR/Telenor;FBID/phone;FBLC/nb_NO;FBOP/5]"
       );
-      proclaim.equal(ios1.getFamily(), "ios_saf");
-
-      const ios2 = new UA(
-        "Mozilla/5.0 (iPad; CPU OS 9_1_3 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Mobile/10B329 [FBAN/FBIOS;FBAV/6.0.2;FBBV/183159;FBDV/iPad3,1;FBMD/iPad;FBSN/iPhone OS;FBSV/6.1.3;FBSS/2; FBCR/;FBID/tablet;FBLC/en_US;FBOP/1]"
-      );
-      proclaim.equal(ios2.getFamily(), "ios_saf");
-
-      const ios3 = new UA(
-        "Mozilla/5.0 (iPhone; CPU iPhone OS 9_1_3 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Mobile/10B329 [FBAN/FBIOS;FBAV/6.0.2;FBBV/183159;FBDV/iPhone4,1;FBMD/iPhone;FBSN/iPhone OS;FBSV/6.1.3;FBSS/2; FBCR/AT&T;FBID/phone;FBLC/en_US;FBOP/1]"
-      );
-      proclaim.equal(ios3.getFamily(), "ios_saf");
+      proclaim.equal(ios.getFamily(), "ios_saf");
     });
   });
 
@@ -385,20 +375,10 @@ describe("lib/UA", function() {
     });
 
     it("should resolve Facebook iOS App to the version of iOS it is running within", function() {
-      let test = UA.normalize(
-        "Mozilla/5.0 (iPad; CPU OS 9_0_1 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Mobile/10A523 [FBAN/FBIOS;FBAV/6.0.1;FBBV/180945;FBDV/iPad2,1;FBMD/iPad;FBSN/iPhone OS;FBSV/6.0.1;FBSS/1; FBCR/;FBID/tablet;FBLC/en_US;FBOP/1]"
+      const test = UA.normalize(
+        "Mozilla/5.0 (iPhone; CPU iPhone OS 9_2 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Mobile/13C75 [FBAN/FBIOS;FBAV/46.0.0.54.156;FBBV/18972819;FBDV/iPhone8,1;FBMD/iPhone;FBSN/iPhone OS;FBSV/9.2;FBSS/2; FBCR/Telenor;FBID/phone;FBLC/nb_NO;FBOP/5]"
       );
       proclaim.equal(test, "ios_saf/9.0.0");
-
-      test = UA.normalize(
-        "Mozilla/5.0 (iPad; CPU OS 9_1_3 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Mobile/10B329 [FBAN/FBIOS;FBAV/6.0.2;FBBV/183159;FBDV/iPad3,1;FBMD/iPad;FBSN/iPhone OS;FBSV/6.1.3;FBSS/2; FBCR/;FBID/tablet;FBLC/en_US;FBOP/1]"
-      );
-      proclaim.equal(test, "ios_saf/9.1.0");
-
-      test = UA.normalize(
-        "Mozilla/5.0 (iPhone; CPU iPhone OS 9_1_3 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Mobile/10B329 [FBAN/FBIOS;FBAV/6.0.2;FBBV/183159;FBDV/iPhone4,1;FBMD/iPhone;FBSN/iPhone OS;FBSV/6.1.3;FBSS/2; FBCR/AT&T;FBID/phone;FBLC/en_US;FBOP/1]"
-      );
-      proclaim.equal(test, "ios_saf/9.1.0");
     });
 
     it("should resolve mobile googlebot 2.1 to chrome 41.0.0", function() {

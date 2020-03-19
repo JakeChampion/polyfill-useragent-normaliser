@@ -82,9 +82,7 @@ for (const [family, alias] of Object.entries(data.aliases)) {
       }
       file += `
                 set req.http.normalized_user_agent_family = "${replacement[0]}";
-                set req.http.normalized_user_agent_major_version = "${
-                  replacement[1]
-                }";
+                set req.http.normalized_user_agent_major_version = "${replacement[1]}";
                 set req.http.normalized_user_agent_minor_version = "0";
             }`;
     }
