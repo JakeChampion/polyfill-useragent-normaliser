@@ -1,3 +1,4 @@
+
 include "normalise-user-agent.vcl";
 
 sub vcl_recv {
@@ -6,7 +7,7 @@ sub vcl_recv {
 
 sub vcl_error {
 	if (obj.status == 903) {
-        call normalise_user_agent_1_5_1;
+        call normalise_user_agent_1_6_3;
 		set obj.status = 200;
 		set obj.response = "OK";
 		set obj.http.Content-Type = "text/plain; charset=utf-8";
