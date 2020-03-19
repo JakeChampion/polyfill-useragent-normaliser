@@ -8,8 +8,111 @@ sub useragent_parser {
   declare local var.Patch STRING;
   set var.Patch = "";
   if (!req.http.User-Agent) {
-  } else if (req.http.User-Agent ~ {"(iPod|iPod touch|iPhone|iPad);.*CPU.*OS[ +](\d+)_(\d+)(?:_(\d+)|).* like Gecko\) (?!Version\/[\d.]+)[A-Za-z]+\/[\d.]+"}) {
-		set var.Family = "Mobile Safari UI/WKWebView";
+  } else if (req.http.User-Agent ~ {"Opera/9\.80 \(.+(Opera Mini)/(\d+)(?:\.(\d+)|)(?:\.(\d+)|)"}) {
+		set var.Family = re.group.1;
+		set var.Major = re.group.2;
+		set var.Minor = re.group.3;
+		set var.Patch = re.group.4;
+	} else if (req.http.User-Agent ~ {"Opera/9\.80 \(.+(Opera Mini)/(\d+)(?:\.(\d+)|)"}) {
+		set var.Family = re.group.1;
+		set var.Major = re.group.2;
+		set var.Minor = re.group.3;
+	} else if (req.http.User-Agent ~ {"(iPod|iPhone|iPad).+AppleWebKit\/525\.18(?:\.\d+|)"}) {
+		set var.Family = "Mobile Safari/WKWebView";
+		set var.Major = "3";
+		set var.Minor="1";
+	} else if (req.http.User-Agent ~ {"(iPod|iPhone|iPad).+AppleWebKit\/528\.18(?:\.\d+|)"}) {
+		set var.Family = "Mobile Safari/WKWebView";
+		set var.Major = "4";
+	} else if (req.http.User-Agent ~ {"(iPod|iPhone|iPad).+AppleWebKit\/531\.21(?:\.\d+|)"}) {
+		set var.Family = "Mobile Safari/WKWebView";
+		set var.Major = "4";
+	} else if (req.http.User-Agent ~ {"(iPod|iPhone|iPad).+AppleWebKit\/532\.9(?:\.\d+|)"}) {
+		set var.Family = "Mobile Safari/WKWebView";
+		set var.Major = "4";
+	} else if (req.http.User-Agent ~ {"(iPod|iPhone|iPad).+AppleWebKit\/532\+"}) {
+		set var.Family = "Mobile Safari/WKWebView";
+		set var.Major = "5";
+	} else if (req.http.User-Agent ~ {"(iPod|iPhone|iPad).+AppleWebKit\/533\.17(?:\.\d+|)"}) {
+		set var.Family = "Mobile Safari/WKWebView";
+		set var.Major = "5";
+	} else if (req.http.User-Agent ~ {"(iPod|iPhone|iPad).+AppleWebKit\/534\.12(?:\.\d+|)"}) {
+		set var.Family = "Mobile Safari/WKWebView";
+		set var.Major = "5";
+	} else if (req.http.User-Agent ~ {"(iPod|iPhone|iPad).+AppleWebKit\/534\.46(?:\.\d+|)"}) {
+		set var.Family = "Mobile Safari/WKWebView";
+		set var.Major = "5";
+		set var.Minor="1";
+	} else if (req.http.User-Agent ~ {"(iPod|iPhone|iPad).+AppleWebKit\/536\.26(?:\.\d+|)"}) {
+		set var.Family = "Mobile Safari/WKWebView";
+		set var.Major = "6";
+	} else if (req.http.User-Agent ~ {"(iPod|iPhone|iPad).+AppleWebKit\/537\.51(?:\.\d+|)"}) {
+		set var.Family = "Mobile Safari/WKWebView";
+		set var.Major = "7";
+	} else if (req.http.User-Agent ~ {"(iPod|iPhone|iPad).+AppleWebKit\/600\.1(?:\.\d+|)"}) {
+		set var.Family = "Mobile Safari/WKWebView";
+		set var.Major = "8";
+	} else if (req.http.User-Agent ~ {"(iPod|iPhone|iPad).+AppleWebKit\/601\.1(?:\.\d+|)"}) {
+		set var.Family = "Mobile Safari/WKWebView";
+		set var.Major = "9";
+	} else if (req.http.User-Agent ~ {"(iPod|iPhone|iPad).+AppleWebKit\/601\.5(?:\.\d+|)"}) {
+		set var.Family = "Mobile Safari/WKWebView";
+		set var.Major = "9";
+	} else if (req.http.User-Agent ~ {"(iPod|iPhone|iPad).+AppleWebKit\/602\.1(?:\.\d+|)"}) {
+		set var.Family = "Mobile Safari/WKWebView";
+		set var.Major = "10";
+	} else if (req.http.User-Agent ~ {"(iPod|iPhone|iPad).+AppleWebKit\/602\.2(?:\.\d+|)"}) {
+		set var.Family = "Mobile Safari/WKWebView";
+		set var.Major = "10";
+	} else if (req.http.User-Agent ~ {"(iPod|iPhone|iPad).+AppleWebKit\/602\.3(?:\.\d+|)"}) {
+		set var.Family = "Mobile Safari/WKWebView";
+		set var.Major = "10";
+	} else if (req.http.User-Agent ~ {"(iPod|iPhone|iPad).+AppleWebKit\/602\.4(?:\.\d+|)"}) {
+		set var.Family = "Mobile Safari/WKWebView";
+		set var.Major = "10";
+	} else if (req.http.User-Agent ~ {"(iPod|iPhone|iPad).+AppleWebKit\/603\.1(?:\.\d+|)"}) {
+		set var.Family = "Mobile Safari/WKWebView";
+		set var.Major = "10";
+	} else if (req.http.User-Agent ~ {"(iPod|iPhone|iPad).+AppleWebKit\/603\.2(?:\.\d+|)"}) {
+		set var.Family = "Mobile Safari/WKWebView";
+		set var.Major = "10";
+	} else if (req.http.User-Agent ~ {"(iPod|iPhone|iPad).+AppleWebKit\/604\.1(?:\.\d+|)"}) {
+		set var.Family = "Mobile Safari/WKWebView";
+		set var.Major = "11";
+	} else if (req.http.User-Agent ~ {"(iPod|iPhone|iPad).+AppleWebKit\/604\.2(?:\.\d+|)"}) {
+		set var.Family = "Mobile Safari/WKWebView";
+		set var.Major = "11";
+	} else if (req.http.User-Agent ~ {"(iPod|iPhone|iPad).+AppleWebKit\/604\.3(?:\.\d+|)"}) {
+		set var.Family = "Mobile Safari/WKWebView";
+		set var.Major = "11";
+	} else if (req.http.User-Agent ~ {"(iPod|iPhone|iPad).+AppleWebKit\/604\.5(?:\.\d+|)"}) {
+		set var.Family = "Mobile Safari/WKWebView";
+		set var.Major = "11";
+	} else if (req.http.User-Agent ~ {"(iPod|iPhone|iPad).+AppleWebKit\/605\.1(?:\.\d+|)"}) {
+		set var.Family = "Mobile Safari/WKWebView";
+		set var.Major = "11";
+	} else if (req.http.User-Agent ~ {"(iPod|iPhone|iPad).+AppleWebKit\/606\.1(?:\.\d+|)"}) {
+		set var.Family = "Mobile Safari/WKWebView";
+		set var.Major = "12";
+	} else if (req.http.User-Agent ~ {"(iPod|iPhone|iPad).+AppleWebKit\/607\.1(?:\.\d+|)"}) {
+		set var.Family = "Mobile Safari/WKWebView";
+		set var.Major = "12";
+		set var.Minor="1";
+	} else if (req.http.User-Agent ~ {"(iPod|iPhone|iPad).+AppleWebKit\/608\.2(?:\.\d+|)"}) {
+		set var.Family = "Mobile Safari/WKWebView";
+		set var.Major = "13";
+	} else if (req.http.User-Agent ~ {"(MQQBrowser/Mini)(?:(\d+)(?:\.(\d+)|)(?:\.(\d+)|)|)"}) {
+		set var.Family = "QQ Browser Mini";
+		set var.Major = re.group.2;
+		set var.Minor = re.group.3;
+		set var.Patch = re.group.4;
+	} else if (req.http.User-Agent ~ {"(MQQBrowser)(?:/(\d+)(?:\.(\d+)|)(?:\.(\d+)|)|)"}) {
+		set var.Family = "QQ Browser Mobile";
+		set var.Major = re.group.2;
+		set var.Minor = re.group.3;
+		set var.Patch = re.group.4;
+	} else if (req.http.User-Agent ~ {"(QQBrowser)(?:/(\d+)(?:\.(\d+)\.(\d+)(?:\.(\d+)|)|)|)"}) {
+		set var.Family = "QQ Browser";
 		set var.Major = re.group.2;
 		set var.Minor = re.group.3;
 		set var.Patch = re.group.4;
@@ -1418,6 +1521,9 @@ sub normalise_user_agent_1_6_3 {
             set req.http.normalized_user_agent_family = "ios_saf";
 		}
 		if (req.http.normalized_user_agent_family == "mobile safari ui/wkwebview") {
+            set req.http.normalized_user_agent_family = "ios_saf";
+		}
+		if (req.http.normalized_user_agent_family == "mobile safari/wkwebview") {
             set req.http.normalized_user_agent_family = "ios_saf";
 		}
 		if (req.http.normalized_user_agent_family == "samsung internet") {
