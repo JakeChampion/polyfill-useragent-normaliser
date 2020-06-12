@@ -7,14 +7,12 @@
     "node": ">=8"
   },
   "scripts": {
-    "commit": "git-cz",
     "lint": "eslint .",
     "fix": "eslint . --fix",
     "build": "node compilers/fastly.js && node compilers/node.js && npm run fix",
     "test": "npm run test:unit && npm run test:integration",
     "test:integration": "mocha --bail --recursive test/integration/*.test.js",
     "test:unit": "mocha --bail --recursive test/unit/*.test.js",
-    "semantic-release": "semantic-release",
     "version": "npm run build",
     "prepare": "npm run build"
   },
@@ -25,49 +23,16 @@
     "semver": "^7.1.1"
   },
   "devDependencies": {
-    "@commitlint/cli": "^8.1.0",
-    "@semantic-release/changelog": "^5.0.0",
-    "@semantic-release/git": "^7.0.16",
-    "commitizen": "^4.0.1",
-    "cz-conventional-changelog": "^3.1.0",
-    "eslint": "^4.19.1",
+    "eslint": "^7.2.0",
     "eslint-plugin-node": "^6.0.1",
     "eslint-plugin-prettier": "^2.6.0",
     "mocha": "^8.0.1",
     "prettier": "^2.0.1",
     "proclaim": "^3.6.0",
-    "supertest": "^4.0.2",
-    "semantic-release": "^15.13.18"
+    "supertest": "^4.0.2"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/Financial-Times/polyfill-useragent-normaliser.git"
-  },
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
-    }
-  },
-  "release": {
-    "plugins": [
-      "@semantic-release/commit-analyzer",
-      "@semantic-release/release-notes-generator",
-      "@semantic-release/npm",
-      "@semantic-release/github"
-    ],
-    "prepare": [
-      "@semantic-release/changelog",
-      "@semantic-release/npm",
-      {
-        "path": "@semantic-release/git",
-        "assets": [
-          "package.json",
-          "package-lock.json",
-          "CHANGELOG.md",
-          "lib/normalise-user-agent.vcl"
-        ],
-        "message": "chore(release): ${nextRelease.version} [skip ci]nn${nextRelease.notes}"
-      }
-    ]
   }
 }

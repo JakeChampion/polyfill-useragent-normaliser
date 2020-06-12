@@ -14,7 +14,6 @@ jobs:
             git submodule update --remote
       - run: npm ci
       - run: npm run lint
-      - run: npx @commitlint/cli --from=origin/master --to=HEAD --verbose
   unit_tests:
     docker:
       - image: circleci/node:10
@@ -65,7 +64,6 @@ jobs:
             git submodule init
             git submodule update --remote
       - run: npm ci
-      - run: npm run semantic-release
 
 workflows:
   test:
