@@ -73,6 +73,10 @@
         {
             "reason": "Chromium-based Edge",
             "regex": "/(?i) Edg\\/[\\d\\.]+\\d+/"
+        },
+        {
+            "reason": "Modern Googlebot which uses modern Chrome",
+            "regex": "/(?i) Googlebot\\/2\\.1; \\+http:\\/\\/www\\.google\\.com\\/bot\\.html) "
         }
     ],
 
@@ -184,7 +188,7 @@
         },
 
         "googlebot": {
-            "2.1": ["chrome", 80]
+            "2.1": ["chrome", 41]
         }
     }
 }
