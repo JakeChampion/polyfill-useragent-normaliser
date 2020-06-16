@@ -5119,7 +5119,7 @@
         "output": "other/0.0.0"
     },
     {
-        "input": "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; Googlebot/2.1; +http://www.google.com/bot.html) Chrome/80.0.0.0 Safari/537.36",
-        "output": "chrome/80.0.0"
+        "input": "Mozilla/5.0 (Linux; Android 6.0.1; Nexus 5X Build/MMB29P) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.93 Mobile Safari/537.36 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)",
+        "output": "chrome/83.0.0"
     }
 ]
