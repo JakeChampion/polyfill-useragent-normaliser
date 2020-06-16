@@ -381,11 +381,11 @@ describe("lib/UA", function() {
       proclaim.equal(test, "ios_saf/9.0.0");
     });
 
-    it("should resolve mobile googlebot 2.1 to chrome 41.0.0", function() {
+    it("should resolve mobile googlebot 2.1 to current chrome", function() {
       const googlebot = UA.normalize(
-        "Mozilla/5.0 (Linux; Android 6.0.1; Nexus 5X Build/MMB29P) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2272.96 Mobile Safari/537.36 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)"
+        "Mozilla/5.0 (Linux; Android 6.0.1; Nexus 5X Build/MMB29P) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.93 Mobile Safari/537.36 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)"
       );
-      proclaim.equal(googlebot, "chrome/41.0.0");
+      proclaim.equal(googlebot, "chrome/83.0.0");
     });
 
     it("should resolve desktop googlebot 2.1 to chrome 41.0.0", function() {
