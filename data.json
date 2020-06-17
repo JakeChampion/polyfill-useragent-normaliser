@@ -75,8 +75,12 @@
             "regex": "/(?i) Edg\\/[\\d\\.]+\\d+/"
         },
         {
-            "reason": "Modern Googlebot which uses modern Chrome",
+            "reason": "Modern mobile Googlebot which uses modern Chrome",
             "regex": "/(?i)Safari.* Googlebot\\/2\\.1; \\+http:\\/\\/www\\.google\\.com\\/bot\\.html\\)/"
+        },
+        {
+            "reason": "Modern desktop Googlebot which uses modern Chrome",
+            "regex": "/(?i) Googlebot\\/2\\.1; \\+http:\\/\\/www\\.google\\.com\\/bot\\.html\\) /"
         }
     ],
 
@@ -186,6 +190,7 @@
             "66": ["chrome", 79],
             "67": ["chrome", 80]
         },
+
         "googlebot": {
             "2.1": ["chrome", 41]
         }
