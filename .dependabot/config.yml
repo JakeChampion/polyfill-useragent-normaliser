@@ -2,8 +2,11 @@ version: 1
 update_configs:
   - package_manager: "javascript"
     directory: "/"
-    update_schedule: "daily"
-    commit_message:
-      prefix: "fix"
-      prefix_development: "chore"
-      include_scope: true
+    update_schedule: "live"
+    automerged_updates:
+      - match:
+          dependency_type: "development"
+          update_type: "semver:minor"
+    ignored_updates:
+      - match:
+          dependency_name: "snyk"
