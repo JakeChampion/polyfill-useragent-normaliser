@@ -24,27 +24,27 @@
 
     "normalisations": [{
             "reason": "Google Search iOS app should be detected as the underlying browser, which is safari on iOS",
-            "regex": "/(?i) GSA\\/[\\d\\.]+/"
+            "regex": "/(?i) GSA\\/[\\d.]+/"
         },
         {
             "reason": "Instagram should be detected as the underlying browser, which is safari on ios",
-            "regex": "/(?i) Instagram [\\d\\.]+/"
+            "regex": "/(?i) Instagram [\\d.]+/"
         },
         {
             "reason": "WebPageTest is not a real browser, remove the token to find the underlying browser",
-            "regex": "/(?i) PTST\\/[\\d\\.]+/"
+            "regex": "/(?i) PTST\\/[\\d.]+/"
         },
         {
             "reason": "Waterfox is a Firefox fork, we can remove the Waterfox identifiers and parse the result as Firefox",
-            "regex": "/(?i) Waterfox\\/[\\d\\.]+/"
+            "regex": "/(?i) Waterfox\\/[\\d.]+/"
         },
         {
             "reason": "Pale Moon has a Firefox-compat UA string, we can remove the Pale Moon and Goanna identifiers and parse the result as Firefox",
-            "regex": "/(?i) Goanna\\/[\\d\\.]+/"
+            "regex": "/(?i) Goanna\\/[\\d.]+/"
         },
         {
             "reason": "Pale Moon has a Firefox-compat UA string, we can remove the Pale Moon and Goanna identifiers and parse the result as Firefox",
-            "regex": "/(?i) PaleMoon\\/[\\d\\.]+/"
+            "regex": "/(?i) PaleMoon\\/[\\d.]+/"
         },
         {
             "reason": "Yandex browser is recognised by UA module but is actually Chromium under the hood, so better to remove the Yandex identifier and get the UA module to detect it as Chrome",
@@ -60,7 +60,7 @@
         },
         {
             "reason": "Vivaldi browser is recognised by UA module but is actually identical to Chrome, so the best way to get accurate targeting is to remove the vivaldi token from the UA",
-            "regex": "/(?i) vivaldi\\/[\\d\\.]+\\d+/"
+            "regex": "/(?i) vivaldi\\/[\\d.]+\\d+/"
         },
         {
             "reason": "Facebook in-app browser `[FBAN/.....]` or `[FB_IAB/.....]` (see https://github.com/Financial-Times/polyfill-service/issues/990)",
@@ -68,11 +68,11 @@
         },
         {
             "reason": "Electron/X.Y.Z` (see https://github.com/Financial-Times/polyfill-service/issues/1129)",
-            "regex": "/(?i) Electron\\/[\\d\\.]+\\d+/"
+            "regex": "/(?i) Electron\\/[\\d.]+\\d+/"
         },
         {
             "reason": "Chromium-based Edge",
-            "regex": "/(?i) Edg\\/[\\d\\.]+\\d+/"
+            "regex": "/(?i) Edg\\/[\\d.]+\\d+/"
         },
         {
             "reason": "Modern mobile Googlebot which uses modern Chrome",

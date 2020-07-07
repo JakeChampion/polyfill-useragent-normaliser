@@ -5,7 +5,7 @@
 const proclaim = require("proclaim");
 const semver = require("semver");
 
-describe("lib/UA", function() {
+describe("lib/UA", function () {
   let UA;
 
   beforeEach(() => {
@@ -30,7 +30,7 @@ describe("lib/UA", function() {
         family: "other",
         major: "0",
         minor: "0",
-        patch: "0"
+        patch: "0",
       });
     });
   });
@@ -340,62 +340,62 @@ describe("lib/UA", function() {
     });
   });
 
-  describe(".normalize", function() {
+  describe(".normalize", function () {
     it("should return UA string lowercase if already normalized", () => {
       const normalizedUa = UA.normalize("IE/11.3.0");
       proclaim.equal(normalizedUa, "ie/11.3.0");
     });
 
-    it("should resolve user agents of core supported browsers", function() {
+    it("should resolve user agents of core supported browsers", function () {
       const test = UA.normalize(
         "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.71 Safari/537.36"
       );
       proclaim.equal(test, "chrome/39.0.0");
     });
 
-    it("should resolve user agents of browsers that map all versions to a constant", function() {
+    it("should resolve user agents of browsers that map all versions to a constant", function () {
       const phantom = UA.normalize(
         "Mozilla/5.0 (Macintosh; Intel Mac OS X) AppleWebKit/534.34 (KHTML, like Gecko) PhantomJS/1.9.0 Safari/534.34"
       );
       proclaim.equal(phantom, "other/0.0.0");
     });
 
-    it("should resolve user agents of browsers with granular version mapping", function() {
+    it("should resolve user agents of browsers with granular version mapping", function () {
       const yandex = UA.normalize(
         "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/37.0.2062.124 YaBrowser/14.10.2062.12057 Safari/537.36"
       );
       proclaim.equal(yandex, "chrome/37.0.0");
     });
 
-    it("should resolve edge mobile to the edge_mob family", function() {
+    it("should resolve edge mobile to the edge_mob family", function () {
       const test = UA.normalize(
         "Mozilla/5.0 (Windows Phone 10.0;  Android 4.2.1; Nokia; Lumia 520) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Mobile Safari/537.36 Edge/12.10130"
       );
       proclaim.equal(test, "edge_mob/12.10130.0");
     });
 
-    it("should resolve Facebook iOS App to the version of iOS it is running within", function() {
+    it("should resolve Facebook iOS App to the version of iOS it is running within", function () {
       const test = UA.normalize(
         "Mozilla/5.0 (iPhone; CPU iPhone OS 9_2 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Mobile/13C75 [FBAN/FBIOS;FBAV/46.0.0.54.156;FBBV/18972819;FBDV/iPhone8,1;FBMD/iPhone;FBSN/iPhone OS;FBSV/9.2;FBSS/2; FBCR/Telenor;FBID/phone;FBLC/nb_NO;FBOP/5]"
       );
       proclaim.equal(test, "ios_saf/9.0.0");
     });
 
-    it("should resolve mobile googlebot 2.1 to current chrome", function() {
+    it("should resolve mobile googlebot 2.1 to current chrome", function () {
       const googlebot = UA.normalize(
         "Mozilla/5.0 (Linux; Android 6.0.1; Nexus 5X Build/MMB29P) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.93 Mobile Safari/537.36 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)"
       );
       proclaim.equal(googlebot, "chrome/83.0.0");
     });
 
-    it("should resolve desktop googlebot 2.1 to chrome 41.0.0", function() {
+    it("should resolve desktop googlebot 2.1 to chrome 41.0.0", function () {
       const googlebot = UA.normalize(
         "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)"
       );
       proclaim.equal(googlebot, "chrome/41.0.0");
     });
 
-    it("should resolve legacy desktop googlebot 2.1 to chrome 41.0.0", function() {
+    it("should resolve legacy desktop googlebot 2.1 to chrome 41.0.0", function () {
       const googlebot = UA.normalize(
         "Googlebot/2.1 (+http://www.google.com/bot.html)"
       );
@@ -403,8 +403,8 @@ describe("lib/UA", function() {
     });
   });
 
-  describe(".isUnknown", function() {
-    it("should resolve false for user agents we have a baseline version for", function() {
+  describe(".isUnknown", function () {
+    it("should resolve false for user agents we have a baseline version for", function () {
       proclaim.equal(new UA("edge/12").isUnknown(), false);
       proclaim.equal(new UA("edge/15").isUnknown(), false);
       proclaim.equal(new UA("edge/16").isUnknown(), false);
