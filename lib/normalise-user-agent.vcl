@@ -1359,7 +1359,7 @@ sub useragent_parser {
   set req.http.useragent_parser_patch=var.Patch;
 }
 
-sub normalise_user_agent_1_7_0 {
+sub normalise_user_agent_1_9_0 {
   if (!req.http.User-Agent) {
     set req.http.normalized_user_agent_family = "other";
     set req.http.normalized_user_agent_major_version = "0";
@@ -1374,22 +1374,22 @@ sub normalise_user_agent_1_7_0 {
     } else {
 
 		# Google Search iOS app should be detected as the underlying browser, which is safari on iOS
-		set req.http.User-Agent = regsub(req.http.User-Agent, {"(?i) GSA\/[\d\.]+"}, "");
+		set req.http.User-Agent = regsub(req.http.User-Agent, {"(?i) GSA\/[\d.]+"}, "");
 
 		# Instagram should be detected as the underlying browser, which is safari on ios
-		set req.http.User-Agent = regsub(req.http.User-Agent, {"(?i) Instagram [\d\.]+"}, "");
+		set req.http.User-Agent = regsub(req.http.User-Agent, {"(?i) Instagram [\d.]+"}, "");
 
 		# WebPageTest is not a real browser, remove the token to find the underlying browser
-		set req.http.User-Agent = regsub(req.http.User-Agent, {"(?i) PTST\/[\d\.]+"}, "");
+		set req.http.User-Agent = regsub(req.http.User-Agent, {"(?i) PTST\/[\d.]+"}, "");
 
 		# Waterfox is a Firefox fork, we can remove the Waterfox identifiers and parse the result as Firefox
-		set req.http.User-Agent = regsub(req.http.User-Agent, {"(?i) Waterfox\/[\d\.]+"}, "");
+		set req.http.User-Agent = regsub(req.http.User-Agent, {"(?i) Waterfox\/[\d.]+"}, "");
 
 		# Pale Moon has a Firefox-compat UA string, we can remove the Pale Moon and Goanna identifiers and parse the result as Firefox
-		set req.http.User-Agent = regsub(req.http.User-Agent, {"(?i) Goanna\/[\d\.]+"}, "");
+		set req.http.User-Agent = regsub(req.http.User-Agent, {"(?i) Goanna\/[\d.]+"}, "");
 
 		# Pale Moon has a Firefox-compat UA string, we can remove the Pale Moon and Goanna identifiers and parse the result as Firefox
-		set req.http.User-Agent = regsub(req.http.User-Agent, {"(?i) PaleMoon\/[\d\.]+"}, "");
+		set req.http.User-Agent = regsub(req.http.User-Agent, {"(?i) PaleMoon\/[\d.]+"}, "");
 
 		# Yandex browser is recognised by UA module but is actually Chromium under the hood, so better to remove the Yandex identifier and get the UA module to detect it as Chrome
 		set req.http.User-Agent = regsub(req.http.User-Agent, {"(YaBrowser)\/(\d+\.)+\d+ "}, "");
@@ -1401,16 +1401,22 @@ sub normalise_user_agent_1_7_0 {
 		set req.http.User-Agent = regsub(req.http.User-Agent, {"((CriOS|OPiOS)\/(\d+)\.(\d+)\.(\d+)\.(\d+)|(FxiOS\/(\d+)\.(\d+)))"}, "");
 
 		# Vivaldi browser is recognised by UA module but is actually identical to Chrome, so the best way to get accurate targeting is to remove the vivaldi token from the UA
-		set req.http.User-Agent = regsub(req.http.User-Agent, {"(?i) vivaldi\/[\d\.]+\d+"}, "");
+		set req.http.User-Agent = regsub(req.http.User-Agent, {"(?i) vivaldi\/[\d.]+\d+"}, "");
 
 		# Facebook in-app browser `[FBAN/.....]` or `[FB_IAB/.....]` (see https://github.com/Financial-Times/polyfill-service/issues/990)
 		set req.http.User-Agent = regsub(req.http.User-Agent, {"(?i) \[(FB_IAB|FBAN|FBIOS|FB4A)\/[^\]]+\]"}, "");
 
 		# Electron/X.Y.Z` (see https://github.com/Financial-Times/polyfill-service/issues/1129)
-		set req.http.User-Agent = regsub(req.http.User-Agent, {"(?i) Electron\/[\d\.]+\d+"}, "");
+		set req.http.User-Agent = regsub(req.http.User-Agent, {"(?i) Electron\/[\d.]+\d+"}, "");
 
 		# Chromium-based Edge
-		set req.http.User-Agent = regsub(req.http.User-Agent, {"(?i) Edg\/[\d\.]+\d+"}, "");
+		set req.http.User-Agent = regsub(req.http.User-Agent, {"(?i) Edg\/[\d.]+\d+"}, "");
+
+		# Modern mobile Googlebot which uses modern Chrome
+		set req.http.User-Agent = regsub(req.http.User-Agent, {"(?i)Safari.* Googlebot\/2\.1; \+http:\/\/www\.google\.com\/bot\.html\)"}, "");
+
+		# Modern desktop Googlebot which uses modern Chrome
+		set req.http.User-Agent = regsub(req.http.User-Agent, {"(?i) Googlebot\/2\.1; \+http:\/\/www\.google\.com\/bot\.html\) "}, "");
 
         call useragent_parser;
 

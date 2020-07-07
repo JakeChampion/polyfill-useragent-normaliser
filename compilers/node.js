@@ -103,7 +103,7 @@ for (const [family, range] of Object.entries(data.baselineVersions)) {
     }
   }
 }
-file += `\n		) {} else {
+file += `\n		) {/*empty*/} else {
             this.ua.family = "other";
             this.ua.major = "0";
             this.ua.minor = "0";

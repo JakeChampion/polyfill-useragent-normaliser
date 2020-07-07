@@ -101,8 +101,9 @@ for (const [family, range] of Object.entries(data.baselineVersions)) {
       file += ` || \n            (req.http.normalized_user_agent_family == "${family}" && std.atoi(req.http.normalized_user_agent_major_version) >= ${range})`;
     } else {
       const [major, minor] = range.split(".");
-      file += ` || \n            (req.http.normalized_user_agent_family == "${family}" && std.atoi(req.http.normalized_user_agent_temp_version) >= ${major +
-        minor})`;
+      file += ` || \n            (req.http.normalized_user_agent_family == "${family}" && std.atoi(req.http.normalized_user_agent_temp_version) >= ${
+        major + minor
+      })`;
     }
   }
 }
