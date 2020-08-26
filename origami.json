@@ -1,0 +1,12 @@
+{
+    "description": "This is the VCL & JS implementation of the User-Agent normalisation used within the polyfill-service and the polyfill-library.",
+    "origamiType": "cli",
+    "origamiVersion": 1,
+    "keywords": [],
+    "support": "https://github.com/Financial-Times/polyfill-useragent-normaliser/issues",
+    "supportStatus": "maintained",
+    "supportContact": {
+        "email": "origami.support@ft.com",
+        "slack": "financialtimes/origami-support"
+    }
+}
