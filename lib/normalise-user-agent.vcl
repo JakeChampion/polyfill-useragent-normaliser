@@ -88,6 +88,11 @@ sub useragent_parser {
 	} else if (req.http.User-Agent ~ {"(iPod|iPhone|iPad).+AppleWebKit\/604\.5(?:\.\d+|)"}) {
 		set var.Family = "Mobile Safari/WKWebView";
 		set var.Major = "11";
+	} else if (req.http.User-Agent ~ {"(iPod|iPhone|iPad).+AppleWebKit\/605\.1(?:\.\d+|) \(KHTML, like Gecko\) Version\/(\d+)\.?(\d+)?\.?(\d+)?.+?Mobile\/\w+\s(Safari)"}) {
+		set var.Family = "Mobile Safari/WKWebView";
+		set var.Major = re.group.2;
+		set var.Minor = re.group.3;
+		set var.Patch = re.group.4;
 	} else if (req.http.User-Agent ~ {"(iPod|iPhone|iPad).+AppleWebKit\/605\.1(?:\.\d+|)"}) {
 		set var.Family = "Mobile Safari/WKWebView";
 		set var.Major = "11";
