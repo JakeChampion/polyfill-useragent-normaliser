@@ -13,7 +13,7 @@
     "test": "npm run test:unit && npm run test:integration",
     "test:integration": "mocha --bail --recursive test/integration/*.test.js",
     "test:unit": "mocha --bail --recursive test/unit/*.test.js",
-    "version": "npm run build",
+    "version": "npm run build && git add .",
     "prepare": "npm run build"
   },
   "author": "",
