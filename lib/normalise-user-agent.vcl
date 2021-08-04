@@ -1364,7 +1364,7 @@ sub useragent_parser {
   set req.http.useragent_parser_patch=var.Patch;
 }
 
-sub normalise_user_agent_1_9_0 {
+sub normalise_user_agent_1_10_1 {
   if (!req.http.User-Agent) {
     set req.http.normalized_user_agent_family = "other";
     set req.http.normalized_user_agent_major_version = "0";
