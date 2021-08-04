@@ -16,7 +16,7 @@ jobs:
     - name: Get the version
       id: version
       run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
-    - run: npm version --no-git-tag-version ${{ steps.version.outputs.VERSION }}
+    - run: npm version --no-git-tag-version ${{ steps.version.outputs.VERSION }} --allow-same-version
     - run: npm publish
       env:
         NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
