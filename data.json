@@ -6,7 +6,7 @@
     "baselineVersions": {
         "edge": "*",
         "edge_mob": "*",
-        "ie": "8",
+        "ie": "9",
         "ie_mob": "11",
         "chrome": "29",
         "safari": "9",

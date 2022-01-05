@@ -1799,7 +1799,7 @@ sub normalise_user_agent_1_10_1 {
             !req.http.Host || 
             (req.http.normalized_user_agent_family == "edge") || 
             (req.http.normalized_user_agent_family == "edge_mob") || 
-            (req.http.normalized_user_agent_family == "ie" && std.atoi(req.http.normalized_user_agent_major_version) >= 8) || 
+            (req.http.normalized_user_agent_family == "ie" && std.atoi(req.http.normalized_user_agent_major_version) >= 9) || 
             (req.http.normalized_user_agent_family == "ie_mob" && std.atoi(req.http.normalized_user_agent_major_version) >= 11) || 
             (req.http.normalized_user_agent_family == "chrome" && std.atoi(req.http.normalized_user_agent_major_version) >= 29) || 
             (req.http.normalized_user_agent_family == "safari" && std.atoi(req.http.normalized_user_agent_major_version) >= 9) || 

@@ -206,7 +206,7 @@ describe("lib/UA", function () {
       proclaim.equal(ieLargeScreen.ua.family, "ie");
 
       const ie = new UA(
-        "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.0; Trident/4.0; chromeframe; SLCC1; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729)"
+        "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.3; WOW64; Trident/7.0; .NET4.0E; .NET4.0C; InfoPath.3)"
       );
       proclaim.equal(ie.ua.family, "ie");
 
@@ -411,6 +411,7 @@ describe("lib/UA", function () {
 
       proclaim.equal(new UA("ie/6").isUnknown(), true);
       proclaim.equal(new UA("ie/7").isUnknown(), true);
+      proclaim.equal(new UA("ie/8").isUnknown(), true);
       proclaim.equal(new UA("ie/14").isUnknown(), false);
 
       proclaim.equal(new UA("ie_mob/7").isUnknown(), true);
