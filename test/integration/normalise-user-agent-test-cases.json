@@ -695,6 +695,10 @@
         "output": "ios_saf/11.0.0"
     },
     {
+        "input": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148",
+        "output": "ios_saf/15.2.0"
+    },
+    {
         "input": "Mozilla/5.0 (Linux; Android 6.0.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Whale/0.9.5.0 Mobile Safari/537.36",
         "output": "other/0.0.0"
     },
