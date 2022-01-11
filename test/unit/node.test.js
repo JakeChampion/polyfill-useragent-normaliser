@@ -77,6 +77,12 @@ describe("lib/UA", function () {
         proclaim.equal(UA.normalize(facebook), "ios_saf/9.0.0");
       });
 
+      it("Webview in iOS App with short ua", () => {
+        const iosApp =
+          "Mozilla/5.0 (iPhone; CPU iPhone OS 15_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148";
+        proclaim.equal(UA.normalize(iosApp), "ios_saf/15.2.0");
+      });
+
       it("Facebook for Android, using Chrome browser", () => {
         const facebook =
           "Mozilla/5.0 (Linux; Android 4.4.2; SCH-I535 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/70.0.0.0 Mobile Safari/537.36 [FBAN/FB4A;FBAV/20.0.0.25.15;]";
