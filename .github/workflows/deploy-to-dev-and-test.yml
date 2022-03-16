@@ -1,4 +1,4 @@
-name: Deploy to staging and test
+name: Deploy to dev and test
 on:
   push:
     branches:
