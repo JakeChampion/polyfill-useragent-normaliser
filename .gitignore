@@ -9,3 +9,5 @@ lib/normalise-user-agent.js
 lib/normalise-user-agent.vcl
 fastly/vcl/main.vcl
 target/
+lib/normalise-user-agent-c-at-e.js
+lib/normalise-user-agent.vcl

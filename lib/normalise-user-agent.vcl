@@ -93,6 +93,10 @@ sub useragent_parser {
 		set var.Major = re.group.2;
 		set var.Minor = re.group.3;
 		set var.Patch = re.group.4;
+	} else if (req.http.User-Agent ~ {"(iPod|iPhone|iPad).+OS (\d+)_(\d+) like Mac OS X\) AppleWebKit\/605\.1(?:\.\d+|) \(KHTML, like Gecko\) Mobile\/\w+"}) {
+		set var.Family = "Mobile Safari/WKWebView";
+		set var.Major = re.group.2;
+		set var.Minor = re.group.3;
 	} else if (req.http.User-Agent ~ {"(iPod|iPhone|iPad).+AppleWebKit\/605\.1(?:\.\d+|)"}) {
 		set var.Family = "Mobile Safari/WKWebView";
 		set var.Major = "11";

@@ -9,7 +9,7 @@
   "scripts": {
     "lint": "eslint .",
     "fix": "eslint . --fix",
-    "build": "node compilers/fastly.js && node compilers/node.js && npm run fix",
+    "build": "node compilers/fastly.js && node compilers/fastly-js-c-at-e.js && node compilers/node.js && npm run fix",
     "test": "npm run test:unit && npm run test:integration",
     "test:integration": "mocha --bail --recursive test/integration/*.test.js",
     "test:unit": "mocha --bail --recursive test/unit/*.test.js",
@@ -19,7 +19,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@financial-times/useragent_parser": "^1.6.0",
+    "@financial-times/useragent_parser": "^1.6.3",
     "semver": "^7.1.1"
   },
   "devDependencies": {
